@@ -24,4 +24,7 @@ COPY 000-default.conf /etc/apache2/sites-available
 # todo: make user id as a parameter
 RUN usermod -u 1000 www-data
 
+# set memory_limit 512M (128 by default)
+RUN echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
+
 WORKDIR /var/www/html

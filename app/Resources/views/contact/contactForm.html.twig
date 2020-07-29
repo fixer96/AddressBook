@@ -1,0 +1,20 @@
+{{ form_start(contactForm) }}
+
+    Basic Information
+
+    {{ form_row(contactForm.firstName) }}
+    {{ form_row(contactForm.lastName) }}
+    {{ form_row(contactForm.phoneNumber) }}
+    {{ form_row(contactForm.email) }}
+    {{ form_row(contactForm.image) }}
+    {{ form_row(contactForm.birthday) }}
+
+    Address
+    {{ form_row(contactForm.address.country) }}
+    {{ form_row(contactForm.address.city) }}
+    {{ form_row(contactForm.address.street) }}
+    {{ form_row(contactForm.address.zipCode) }}
+
+    <input type="submit" value="Submit" class="btn btn-default pull-right"/>
+
+{{ form_end(contactForm) }}

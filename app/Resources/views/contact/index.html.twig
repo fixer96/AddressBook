@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in pagination %}
+                <tr>
+                    <th>{{ contact.firstName }}</th>
+                    <th>{{ contact.lastName }}</th>
+                    <th>{{ contact.phoneNumber }}</th>
+                    <th>{{ contact.email }}</th>
+                    <th>{{ contact.address.country }}</th>
+                    <th>
+                        <a href="{{ path('contact_edit', {'id': contact.id}) }}">Edit</a>
+                    </th>
+                    {% if contact.imageName %}
+                        <th>
+                            <img
+                                src="{{ absolute_url(asset(contact.imageName|image_url)) }}"
+                                width="120px"
+                                height="150px">
+                        </th>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+    <a href="{{ path('contact_create') }}">Add contact</a>
+{% endblock %}

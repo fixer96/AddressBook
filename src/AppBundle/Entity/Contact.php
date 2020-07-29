@@ -6,10 +6,15 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Table(name="contact")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ContactRepository")
+ *
+ * @UniqueEntity(fields={"email"})
+ * @UniqueEntity(fields={"phoneNumber"})
  */
 class Contact
 {
@@ -32,6 +37,8 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=50)
+     *
+     * @Assert\NotBlank()
      */
     private $firstName;
 
@@ -39,6 +46,8 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=50)
+     *
+     * @Assert\NotBlank()
      */
     private $lastName;
 
@@ -46,6 +55,8 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="phone_number", type="string", length=15, unique=true)
+     *
+     * @Assert\NotBlank()
      */
     private $phoneNumber;
 
@@ -53,6 +64,8 @@ class Contact
      * @var \DateTime
      *
      * @ORM\Column(name="birthday", type="date")
+     *
+     * @Assert\NotBlank()
      */
     private $birthday;
 
@@ -60,6 +73,9 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=100, unique=true)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -74,6 +90,8 @@ class Contact
      * @var Address
      *
      * @ORM\Embedded(class="AppBundle\Entity\Address")
+     *
+     * @Assert\Valid()
      */
     private $address;
 

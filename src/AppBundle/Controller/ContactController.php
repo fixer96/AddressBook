@@ -37,7 +37,9 @@ class ContactController extends Controller
         PaginatorInterface $paginator
     ): Response {
         $contactRepository = $entityManager->getRepository(Contact::class);
-        $allContactsQuery = $contactRepository->createQueryBuilder('c')->getQuery();
+        $allContactsQuery = $contactRepository->createQueryBuilder('c')
+            ->addOrderBy('c.createdAt')
+            ->getQuery();
 
         $pagination = $paginator->paginate(
             $allContactsQuery,

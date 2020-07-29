@@ -24,7 +24,11 @@ class ContactType extends AbstractType
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
             ->add('phoneNumber', TelType::class)
-            ->add('birthday', DateType::class)
+            ->add('birthday', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker'],
+            ])
             ->add('email', EmailType::class)
             ->add('image', FileType::class, [
                 'required' => false,

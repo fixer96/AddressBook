@@ -42,7 +42,7 @@ class ContactController extends Controller
         $pagination = $paginator->paginate(
             $allContactsQuery,
             $request->query->getInt('page', 1),
-            10
+            $request->query->getInt('limit', 5)
         );
 
         return $this->render('contact/index.html.twig', [

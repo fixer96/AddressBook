@@ -1,0 +1,8 @@
+label.required:before {
+    content: "* ";
+}
+
+.contact-image {
+    width: 120px;
+    height: 150px;
+}

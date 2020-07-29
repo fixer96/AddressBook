@@ -1,10 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="{{ path('contact_index') }}">List contact</a>
-    <a href="{{ path('contact_create') }}">Add contact</a>
-    <a href="{{ path('contact_edit', { id: 1 }) }}">Edit contact</a>
-
-    {% include 'contact/contactForm.html.twig' %}
-
+    <div class="mt-5">
+        {% include 'contact/contactForm.html.twig' %}
+    </div>
 {% endblock %}

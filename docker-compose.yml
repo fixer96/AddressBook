@@ -9,9 +9,3 @@ services:
             - 80:80
         volumes:
             - ./:/var/www/html
-        links:
-          - sqlite-server
-
-    sqlite-server:
-        container_name: sqlite-server
-        image: keinos/sqlite3

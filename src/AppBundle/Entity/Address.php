@@ -12,28 +12,28 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(name="country", type="string", length=50)
      */
     private $country;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(name="city", type="string", length=50)
      */
     private $city;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(name="street", type="string", length=50)
      */
     private $street;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(name="zip_code", type="string", length=10)
      */
     private $zipCode;
 

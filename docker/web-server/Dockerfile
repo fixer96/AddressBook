@@ -6,10 +6,15 @@ RUN apt-get update && \
 
 # install new packages
 RUN apt-get install -y \
+    zlib1g-dev libicu-dev g++ \
     libzip-dev \
-    zip && \
-    docker-php-ext-configure zip --with-libzip && \
-    docker-php-ext-install zip
+    zip
+# zip extension
+RUN docker-php-ext-configure zip --with-libzip
+RUN docker-php-ext-install zip
+# intl extension
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install intl
 
 # clear unused packages
 RUN apt-get autoremove -y
